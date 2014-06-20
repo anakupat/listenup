@@ -1,4 +1,5 @@
 
+<h3 style="color: white">My Playlist</h3>
 <div class="container">
 
   <table class="table search_results">
@@ -6,6 +7,9 @@
   <tr>
     <td>
       <iframe src="https://embed.spotify.com/?uri=<%= song.song_uri %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </td>
+    <td>
+       <%= link_to 'delete', song, :method => :delete, :class => "btn btn-lg btn-success"%>
     </td>
   </tr>
     <% end %>
