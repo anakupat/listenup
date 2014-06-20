@@ -1,0 +1,29 @@
+
+<div class="container">
+
+  <table class="table">
+    <% @results["tracks"].each do |result| %>
+  <tr>
+      <form action="/playlist" method="get">
+    <td>
+      <% result["artists"].each do |artist|%>
+          <%= artist["name"] %>
+        <% end %>
+    </td>
+    <td>
+      <%= result["name"] %>
+    </td>
+    <td>
+      <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </td>
+    <td>
+            <input type="checkbox" name="<%=result["href"] %>">
+            <input type= submit>
+    </td>
+          </form>
+  </tr>
+    <% end %>
+</table>
+
+</div>
+
