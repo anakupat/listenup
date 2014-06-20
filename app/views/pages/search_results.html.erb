@@ -1,10 +1,11 @@
 
 <div class="container">
 
-  <table class="table">
-    <% @results["tracks"].each do |result| %>
+  <table class="table search_results">
+    <% @results["tracks"][0,10].each do |result| %>
   <tr>
-      <form action="/playlist" method="get">
+    <%= form_for Playlist.new(song_uri: result["href"] ) do |f| %>
+      <form action="/playlists" method="post">
     <td>
       <% result["artists"].each do |artist|%>
           <%= artist["name"] %>
@@ -17,11 +18,11 @@
       <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
     </td>
     <td>
-            <input type="checkbox" name="<%=result["href"] %>">
-            <input type= submit>
+      <%= f.hidden_field :song_uri %>
+      <%= f.submit "add", :class => "btn btn-lg btn-success" %>
     </td>
-          </form>
   </tr>
+      <% end %>
     <% end %>
 </table>
 

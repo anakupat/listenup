@@ -1,0 +1,14 @@
+
+<div class="container">
+
+  <table class="table search_results">
+    <% @songs.each do |song| %>
+  <tr>
+    <td>
+      <iframe src="https://embed.spotify.com/?uri=<%= song.song_uri %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+    </td>
+  </tr>
+    <% end %>
+</table>
+
+</div>

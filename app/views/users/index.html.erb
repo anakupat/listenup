@@ -1,0 +1,18 @@
+
+<table class="table user_display">
+  <% @users.each do |user| %>
+  <tr>
+    <td>
+      <img src="<%= user.url %>" class="img-circle">
+    </td>
+    <td class="user_name">
+        <%= user.name %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>
+
+
+
+
