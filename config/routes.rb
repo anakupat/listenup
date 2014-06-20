@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 root 'pages#homepage'
 
 resources :pages
+resources :users
+resources :playlists
 
 get 'search' => 'pages#search'
 get 'search_results' => 'pages#search_results'

@@ -39,3 +39,14 @@ body{
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
   background-color: #5cb85c;
 }
+
+.search_results{
+  color: #5cb85c;
+}
+
+
+
+.user_display{
+  max-width: 500px;
+  color: white;
+}

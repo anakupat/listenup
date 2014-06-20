@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
 def search_spotify(search)
   search_results = HTTParty.get("http://ws.spotify.com/search/1/track.json?q=#{search}")
-  search_results
+
 end
 
 
@@ -19,6 +19,7 @@ end
 def search_results
   search = params[:search].to_s.gsub(" ","+")
   @results = search_spotify(search)
+
 
     render('search_results')
 end
