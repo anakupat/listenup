@@ -1,0 +1,23 @@
+As a user I want to visit the site and search for songs so that I can add them to other users playlist
+  * I can search for songs or artist on the homepage
+  * I must be signed in to add song to other users playlist
+  * I can add song to other users playlist if signed in
+  * I am given a notice if no results are found
+  * I am prompted to sign in or sign up if I try to search without being signed in
+
+As a user I want to be able to play the songs that are added to my playlist
+  * I can view songs that have been added to my playlist
+  * I can click play to start the song in my Spotify app
+  * I can delete song from my playlist
+  * I can add a song from my playlist to other users playlist
+
+As a user I want to start my own party playlist and send the link out to my friends to add songs
+  * I can create my own party page that will display my playlist
+  * I can search from songs and add them to my playlist
+  * I can enter a list of email addresses and send friends a link to my party playlist
+
+As a user I want to be able to add songs so the party playlist
+  * I am sent an email with a link to a party playlist page
+  * I can click the link and be directed to the party playlist page
+  * I can search for songs and add them to the party playlist page
+

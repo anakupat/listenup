@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
 def search_spotify(search)
   search_results = HTTParty.get("http://ws.spotify.com/search/1/track.json?q=#{search}")
-
 end
 
 
