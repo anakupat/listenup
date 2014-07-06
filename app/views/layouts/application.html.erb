@@ -26,8 +26,12 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Listenup!</a></li>
                 <li><a href="/search">Search</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/playlists">My Playlist</a></li>
+                <% if user_signed_in? %>
+                  <li><a href="/playlists">My Playlist</a></li>
+                  <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                  <li><%= link_to "Sign In", new_user_session_path %></li>
+                <% end %>
               </ul>
             </div>
           </div>
