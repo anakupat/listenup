@@ -5,7 +5,7 @@ def index
 end
 
 def show
-  @user = User.find(params[:id])
+  @user = User.find_by_permalink(params[:id])
 end
 
 def create
