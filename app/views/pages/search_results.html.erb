@@ -22,9 +22,37 @@
         <%= f.hidden_field :song_uri %>
         <%= f.submit "add", :class => "btn btn-lg btn-success" %>
       </td>
+      <td>
+         <% end %>
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          add
+        </button>
+      </td>
     </tr>
-        <% end %>
       <% end %>
   </table>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add to Friends Playlist</h4>
+      </div>
+      <div class="modal-body">
+        <% @users.each do |user| %>
+          <input type="checkbox">
+          <%= user.username %><br>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of modal -->
