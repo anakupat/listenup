@@ -8,7 +8,6 @@ end
 
 def homepage
 
-
 end
 
 def search

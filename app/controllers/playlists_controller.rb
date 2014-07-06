@@ -4,6 +4,10 @@ def index
   @songs = Playlist.all
 end
 
+def show
+  @user = User.find(params[:id])
+end
+
 def create
   @song = Playlist.new(playlist_params)
     if @song.save
