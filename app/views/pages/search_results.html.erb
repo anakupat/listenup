@@ -1,31 +1,30 @@
 
 <div class="container">
 
-  <table class="table search_results">
-    <% @results["tracks"][0,10].each do |result| %>
-  <tr>
-    <%= form_for Playlist.new(song_uri: result["href"] ) do |f| %>
-      <form action="/playlists" method="post">
-    <td>
-      <% result["artists"].each do |artist|%>
-          <h4><%= artist["name"] %></h4>
-        <% end %><br>
-        <%= result["name"] %>
-    </td>
-    <td>
+    <table class="table search_results">
+      <% @results["tracks"][0,10].each do |result| %>
+    <tr>
+      <%= form_for Playlist.new(song_uri: result["href"] ) do |f| %>
+        <form action="/playlists" method="post">
+      <td>
+        <% result["artists"].each do |artist|%>
+            <h4><%= artist["name"] %></h4>
+          <% end %><br>
+          <%= result["name"] %>
+      </td>
+      <td>
 
-    </td>
-    <td>
-      <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
-    </td>
-    <td>
-      <%= f.hidden_field :song_uri %>
-      <%= f.submit "add", :class => "btn btn-lg btn-success" %>
-    </td>
-  </tr>
+      </td>
+      <td>
+        <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+      </td>
+      <td>
+        <%= f.hidden_field :song_uri %>
+        <%= f.submit "add", :class => "btn btn-lg btn-success" %>
+      </td>
+    </tr>
+        <% end %>
       <% end %>
-    <% end %>
-</table>
-
+  </table>
 </div>
 
