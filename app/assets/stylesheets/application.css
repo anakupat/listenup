@@ -40,10 +40,14 @@ body{
   background-color: #5cb85c;
 }
 
+
 .search_results{
   color: #5cb85c;
 }
 
+.how_it_works{
+  float: left;
+}
 
 
 .user_display{

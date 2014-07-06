@@ -21,3 +21,15 @@ As a user I want to be able to add songs so the party playlist
   * I can click the link and be directed to the party playlist page
   * I can search for songs and add them to the party playlist page
 
+  users (devise)
+    - email
+    - password
+    - first_name
+    - last_name
+    - avatar
+
+  playlists
+    - user_id
+    - song_url
+
+

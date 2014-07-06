@@ -1,18 +1,17 @@
 <center>
-<div class="jumbotron" style="max-width: 400px">
-<% if current_user %>
-  <img src="<%= current_user.url %>" class="img-circle"><br>
+  <div class="jumbotron how_it_works" style="max-width: 400px">
 
-  <h4>Welcome <%= current_user.name %> !</h4>
-  <a href= "<%= signout_path %>" class="btn btn-success" role="button">Sign Out</a>
-
-<% else %>
-  <a href= "/auth/twitter" class="btn btn-success" role="button">Sign In with Twitter</a>
-<% end %>
-</div>
-
+    <% if current_user %>
+      <img src="<%= current_user.url %>" class="img-circle"><br>
+      <h4>Welcome <%= current_user.name %> !</h4>
+      <a href= "<%= signout_path %>" class="btn btn-success" role="button">Sign Out</a>
+    <% else %>
+      <p>Search for songs that you want your friends to hear</p>
+      <p>Add songs to your friends playlist</p>
+      <p>Send party attendees a link to add songs to the party playlist!</p>
+      <p></p>
+        <a href= "/auth/twitter" class="btn btn-success" role="button">Sign Up!</a>
+    <% end %>
+  </div>
 </center>
-
-
-
-
+<iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:5Z7ygHQo02SUrFmcgpwsKW,1x6ACsKV4UdWS2FMuPFUiT,4bi73jCM02fMpkI11Lqmfe" frameborder="0" allowtransparency="true"></iframe>
