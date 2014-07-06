@@ -3,15 +3,10 @@ Rails.application.routes.draw do
 root 'pages#homepage'
 
 resources :pages
-resources :users
 resources :playlists
 
 get 'search' => 'pages#search'
 get 'search_results' => 'pages#search_results'
-
-get 'auth/:provider/callback', to: 'sessions#create'
-get 'auth/failure', to: redirect('/')
-get 'signout', to: 'sessions#destroy', as: 'signout'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
