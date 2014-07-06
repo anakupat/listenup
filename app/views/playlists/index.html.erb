@@ -2,6 +2,13 @@
 <h3 style="color: white">My Playlist</h3>
 <div class="container">
 
+<% songs = [] %>
+<% @songs.each do |song| %>
+  <% songs << song.song_uri.gsub("spotify:track:","") %>
+<% end %>
+<% songs = songs.join(",") %>
+
+<iframe src="https://embed.spotify.com/?uri=spotify:trackset:ChrisFinlayson:<%=songs%>"  width="300" height="380"frameborder="0" allowtransparency="true"></iframe>
   <table class="table search_results">
     <% @songs.each do |song| %>
   <tr>
@@ -16,3 +23,4 @@
 </table>
 
 </div>
+
