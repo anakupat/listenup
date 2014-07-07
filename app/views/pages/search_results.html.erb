@@ -41,38 +41,8 @@
   </table>
 </div>
 
-
- f.collection_select :user_id, @users, :id, :username, :prompt => "Select a user"
-
 <script>
 $('li').click(function(event){
     event.stopPropagation();
 });
 </script>
-<!-- Modal -->
-
-        <!-- Button trigger modal -->
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          add
-        </button>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add to Friends Playlist</h4>
-      </div>
-      <div class="modal-body">
-        <% @users.each do |user| %>
-          <input type="checkbox">
-          <%= user.username %><br>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- end of modal -->

@@ -5,19 +5,21 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+
     @user = User.find_by_permalink(params[:id])
+
+    @params_id = @user.id
+    @songs = Playlist.where(user_id:  @params_id)
   end
 
   def create
-
-
     @foo = params[:user_ids]
 
     @foo.each do |userid|
      @song = Playlist.create(song_uri: params[:playlist][:song_uri], user_id: userid)
     end
 
-    redirect_to '/search_results'
+    redirect_to '/search'
   end
 
   def destroy
