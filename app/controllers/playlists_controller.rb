@@ -1,25 +1,26 @@
 class PlaylistsController < ApplicationController
 
-def index
-  @songs = Playlist.all
-end
+  def index
+    @songs = Playlist.all
+  end
 
-def show
-  @user = User.find_by_permalink(params[:id])
-end
+  def show
+    @user = User.find_by_permalink(params[:id])
+  end
 
-def create
-  @song = Playlist.new(playlist_params)
-    if @song.save
-      redirect_to '/playlists'
-      flash.now[:notice] = "Song added to playlist"
-    else
-      flash.now[:notice] = "Not saved!"
-      redirect_to '/search_results'
+  def create
+
+
+    @foo = params[:user_ids]
+
+    @foo.each do |userid|
+     @song = Playlist.create(song_uri: params[:playlist][:song_uri], user_id: userid)
     end
-end
 
-def destroy
+    redirect_to '/search_results'
+  end
+
+  def destroy
     @song = Playlist.find(params[:id])
     @song.destroy
     redirect_to '/playlists'
@@ -28,7 +29,7 @@ def destroy
   private
 
   def playlist_params
-    params.require(:playlist).permit(:song_uri)
+    params.require(:playlist).permit(:song_uri, :user_id)
   end
 
 end

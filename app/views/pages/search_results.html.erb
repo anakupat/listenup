@@ -4,8 +4,6 @@
     <table class="table search_results">
       <% @results["tracks"][0,10].each do |result| %>
     <tr>
-      <%= form_for Playlist.new(song_uri: result["href"] ) do |f| %>
-        <form action="/playlists" method="post">
       <td>
         <% result["artists"].each do |artist|%>
             <h4><%= artist["name"] %></h4>
@@ -16,22 +14,47 @@
         <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
       </td>
       <td>
+      <%= form_for Playlist.new(song_uri: result["href"]) do |f| %>
+
         <%= f.hidden_field :song_uri %>
+<!-- dropdown -->
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+              Users
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <% @users.each do |user| %>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= check_box_tag "user_ids[]", user.id %> <%= user.username %></a></li>
+                <% end %>
+
+            </ul>
+          </div>
+<!-- end of dropdown -->
         <%= f.submit "add", :class => "btn btn-lg btn-success" %>
       </td>
       <td>
          <% end %>
-        <!-- Button trigger modal -->
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-          add
-        </button>
       </td>
     </tr>
       <% end %>
   </table>
 </div>
 
+
+ f.collection_select :user_id, @users, :id, :username, :prompt => "Select a user"
+
+<script>
+$('li').click(function(event){
+    event.stopPropagation();
+});
+</script>
 <!-- Modal -->
+
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          add
+        </button>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

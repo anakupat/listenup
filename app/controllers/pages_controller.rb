@@ -18,6 +18,7 @@ def search_results
   search = params[:search].to_s.gsub(" ","+")
   @results = search_spotify(search)
   @users = User.all
+  @playlist = Playlist.new
 
     render('search_results')
 end
