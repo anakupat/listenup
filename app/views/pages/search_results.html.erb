@@ -1,4 +1,3 @@
-
 <div class="container">
 
     <table class="table search_results">
@@ -20,18 +19,18 @@
 <!-- dropdown -->
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              Users
+              Add to friends playlist
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <% @users.each do |user| %>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= check_box_tag "user_ids[]", user.id %> <%= user.username %></a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="foo"><%= check_box_tag "user_ids[]", user.id %> <%= user.username %></a></li>
                 <% end %>
-
+              <%= f.submit "add", :class => "btn btn-lg btn-success add_button" %>
             </ul>
           </div>
 <!-- end of dropdown -->
-        <%= f.submit "add", :class => "btn btn-lg btn-success" %>
+
       </td>
       <td>
          <% end %>
@@ -42,7 +41,7 @@
 </div>
 
 <script>
-$('li').click(function(event){
+$('#foo').click(function(event){
     event.stopPropagation();
 });
 </script>

@@ -12,6 +12,7 @@ class PlaylistsController < ApplicationController
   end
 
   def create
+
     @user_ids = params[:user_ids]
 
     @user_ids.each do |userid|

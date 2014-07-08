@@ -45,6 +45,31 @@ body{
   color: #5cb85c;
 }
 
+.btn-default{
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  color: white;
+}
+
+.btn-default:hover{
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  color: white;
+}
+
+ul.dropdown-menu{
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.dropdown-menu > li > a{
+  color: white;
+}
+
+.add_button{
+  background-color:  #5cb85c;
+  border-color: white;
+}
 .how_it_works{
   float: left;
 }
