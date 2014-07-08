@@ -1,5 +1,4 @@
-class PlaylistsController < ApplicationController
-
+class SongsController < ApplicationController
 
   def index
     @songs = Song.all
@@ -13,9 +12,9 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-
+    # binding.pry
     @user_ids = params[:user_ids]
-
+    @artist = params[:song][:name]
     @user_ids.each do |userid|
      @song = Song.create(song_uri: params[:song][:song_uri], user_id: userid)
     end
@@ -32,7 +31,7 @@ class PlaylistsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:song_uri, :user_id, :artist, :song, :added_by)
+    params.require(:song).permit(:song_uri, :user_id, :artist, :song_name, :added_by)
   end
 
 end

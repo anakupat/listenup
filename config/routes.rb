@@ -7,6 +7,7 @@ root 'pages#search'
 
 resources :pages
 resources :playlists
+resources :songs
 
 get 'search' => 'pages#search'
 get 'search_results' => 'pages#search_results'
