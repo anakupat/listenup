@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 20140708185812) do
     t.datetime "updated_at"
   end
 
-  create_table "playlists", force: true do |t|
-    t.integer  "user_id"
-    t.string   "song_uri"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "songs", force: true do |t|
     t.integer  "user_id"
     t.string   "added_by"
