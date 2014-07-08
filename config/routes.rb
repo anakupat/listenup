@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 devise_for :users
 resources :users, only: [:index]
 resources :friendships
-root 'pages#homepage'
+root 'pages#search'
 
 resources :pages
 resources :playlists
