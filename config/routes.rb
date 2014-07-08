@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+devise_for :users
+resources :users, only: [:index]
+resources :friendships
 root 'pages#homepage'
 
 resources :pages
