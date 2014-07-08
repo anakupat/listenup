@@ -53,13 +53,14 @@ body{
 
 .btn-default:hover{
   background-color: #5cb85c;
-  border-color: #5cb85c;
+  border-color: white;
   color: white;
 }
 
 ul.dropdown-menu{
   background-color: #5cb85c;
-  border-color: #5cb85c;
+  border-width: 2px;
+  border-color: white;
 }
 
 .dropdown-menu > li > a{
@@ -69,7 +70,9 @@ ul.dropdown-menu{
 .add_button{
   background-color:  #5cb85c;
   border-color: white;
+  margin-left: 45px;
 }
+
 .how_it_works{
   float: left;
 }
