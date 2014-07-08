@@ -3,7 +3,7 @@
     <table class="table search_results">
 
       <% @results["tracks"][0,10].each do |result| %>
-      <%= form_for Song.new(song_uri: result["href"]) do |f| %>
+      <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]) do |f| %>
     <tr>
       <td>
         <% result["artists"].each do |artist|%>
@@ -15,7 +15,7 @@
         <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
       </td>
       <td>
-
+        <%= f.hidden_field :song_name %>
         <%= f.hidden_field :song_uri %>
 <!-- dropdown -->
           <div class="dropdown">

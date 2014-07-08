@@ -16,7 +16,8 @@ class SongsController < ApplicationController
     @user_ids = params[:user_ids]
     @artist = params[:song][:name]
     @user_ids.each do |userid|
-     @song = Song.create(song_uri: params[:song][:song_uri], user_id: userid)
+      @song = Song.create(song_uri: params[:song][:song_uri],
+       song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
     end
 
     redirect_to '/search'
@@ -31,7 +32,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:song_uri, :user_id, :artist, :song_name, :added_by)
+    params.require(:song).permit(:song_uri, :user_id, :song_name, :added_by)
   end
-
 end
