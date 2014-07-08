@@ -12,9 +12,9 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @foo = params[:user_ids]
+    @user_ids = params[:user_ids]
 
-    @foo.each do |userid|
+    @user_ids.each do |userid|
      @song = Playlist.create(song_uri: params[:playlist][:song_uri], user_id: userid)
     end
 
