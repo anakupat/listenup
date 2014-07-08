@@ -26,7 +26,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to '/playlists'
+    redirect_to "/playlists/#{current_user.permalink}"
   end
 
   private

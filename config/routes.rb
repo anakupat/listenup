@@ -6,7 +6,7 @@ resources :friendships
 root 'pages#search'
 
 resources :pages
-resources :playlists, only: [:show, :delete]
+resources :playlists
 resources :songs
 
 get 'search' => 'pages#search'
