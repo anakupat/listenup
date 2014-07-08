@@ -1,10 +1,5 @@
 class PlaylistsController < ApplicationController
 
-
-  def index
-    @songs = Song.all
-  end
-
   def show
     @user = User.find_by_permalink(params[:id])
     @params_id = @user.id
@@ -12,27 +7,9 @@ class PlaylistsController < ApplicationController
     @friends = Friendship.where(user_id: @params_id)
   end
 
-  def create
-
-    @user_ids = params[:user_ids]
-
-    @user_ids.each do |userid|
-     @song = Song.create(song_uri: params[:song][:song_uri], user_id: userid)
-    end
-
-    redirect_to '/search'
-  end
-
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
     redirect_to '/playlists'
   end
-
-  private
-
-  def song_params
-    params.require(:song).permit(:song_uri, :user_id, :artist, :song, :added_by)
-  end
-
 end
