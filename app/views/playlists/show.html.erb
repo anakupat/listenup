@@ -12,15 +12,25 @@
 <iframe src="https://embed.spotify.com/?uri=spotify:trackset:ChrisFinlayson:<%=songs%>"  width="300" height="380"frameborder="0" allowtransparency="true"></iframe>
   <table class="table search_results">
     <% @songs.each do |song| %>
-  <tr>
-    <td>
-      <iframe src="https://embed.spotify.com/?uri=<%= song.song_uri %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
-    </td>
-    <td>
-       <%= link_to 'delete', song, :method => :delete, :class => "btn btn-lg btn-success"%>
-    </td>
-  </tr>
-    <% end %>
-</table>
-
+    <tr>
+      <td>
+        <iframe src="https://embed.spotify.com/?uri=<%= song.song_uri %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+      </td>
+      <td>
+         <%= link_to 'delete', song, :method => :delete, :class => "btn btn-lg btn-success"%>
+      </td>
+    </tr>
+      <% end %>
+  </table>
 </div>
+
+<h2>Friends</h2>
+<table style="color: white" class="table">
+  <% @friends.each do |friend| %>
+    <tr>
+      <td>
+    <%= friend.friend.username %>
+      </td>
+    </tr>
+  <% end %>
+</table>

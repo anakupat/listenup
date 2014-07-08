@@ -5,11 +5,10 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-
     @user = User.find_by_permalink(params[:id])
-
     @params_id = @user.id
     @songs = Playlist.where(user_id:  @params_id)
+    @friends = Friendship.where(user_id: @params_id)
   end
 
   def create
