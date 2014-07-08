@@ -25,7 +25,7 @@
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                 <% @users.each do |user| %>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="foo"><%= check_box_tag "user_ids[]", user.id %> <%= user.username %></a></li>
+                  <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" ><%= check_box_tag "user_ids[]", user.id %> <%= user.username %></a></li>
                 <% end %>
               <%= f.submit "add", :class => "btn btn-lg btn-success add_button" %>
             </ul>
@@ -40,9 +40,9 @@
       <% end %>
   </table>
 </div>
-
 <script>
-$('#foo').click(function(event){
-    event.stopPropagation();
-});
+  $("#foo").click(function(event){
+      event.stopPropagation();
+  });
 </script>
+
