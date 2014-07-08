@@ -14,7 +14,8 @@
     <% @songs.each do |song| %>
     <tr>
       <td>
-        <iframe src="https://embed.spotify.com/?uri=<%= song.song_uri %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
+        <h4><%= song.song_name %></h4>
+        added by: <%= song.added_by %>
       </td>
       <td>
          <%= link_to 'delete', song, :method => :delete, :class => "btn btn-lg btn-success"%>
