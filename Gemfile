@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pry'
 gem 'devise'
 gem 'omniauth-twitter'
-
+gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 
 gem 'httparty'
