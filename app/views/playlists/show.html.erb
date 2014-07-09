@@ -26,14 +26,15 @@
 </div>
 
 <h2>Friends</h2>
-<table style="color: white" class="table">
-  <% @friends.each do |friend| %>
-    <tr>
-      <td>
-    <%= friend.friend.username %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-
-
+  <table style="color: white" class="table">
+    <% @user.all_friends.each do |friend| %>
+     <% if friend.id != @params_id %>
+      <tr>
+        <td>
+        <%= link_to friend.username, "/playlists/#{friend.permalink}"  %>
+        </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+<%= link_to "Search for friends", users_path %>

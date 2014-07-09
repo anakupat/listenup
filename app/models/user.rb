@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     permalink
   end
 
+  def all_friends
+    friends + inverse_friends
+  end
+
   private
     def create_permalink
       self.permalink = username.downcase
