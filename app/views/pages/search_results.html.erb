@@ -18,6 +18,7 @@
         <%= f.hidden_field :song_name %>
         <%= f.hidden_field :song_uri %>
 <!-- dropdown -->
+<% if user_signed_in? %>
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
               Add to friends playlist
@@ -30,6 +31,7 @@
               <%= f.submit "add", :class => "btn btn-lg btn-success add_button" %>
             </ul>
           </div>
+<% end %>
 <!-- end of dropdown -->
 
       </td>
