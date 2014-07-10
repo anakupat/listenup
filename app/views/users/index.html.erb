@@ -4,8 +4,13 @@
   <% @users.each do |user| %>
     <tr>
       <td>
-          <%= user.username %> <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
-       </td>
+        <%= user.username %>
+      </td>
+       <% if user_signed_in? %>
+      <td>
+        <%= link_to "Add Friend", friendships_path(:friend_id => user.id), :method => :post %>
+      </td>
+      <% end %>
     </tr>
   <% end %>
 </table>
