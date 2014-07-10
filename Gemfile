@@ -33,6 +33,15 @@ gem 'will_paginate', '~> 3.0'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
+  gem 'shoulda'
+  gem 'quiet_assets'
 end
 
 # bundle exec rake doc:rails generates the API under doc/api.
