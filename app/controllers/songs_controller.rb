@@ -12,7 +12,6 @@ class SongsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @user_ids = params[:user_ids]
     @artist = params[:song][:name]
     @user_ids.each do |userid|
@@ -26,7 +25,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to "/playlists/#{current_user.permalink}"
+    redirect_to "/users/#{current_user.permalink}"
   end
 
   private
