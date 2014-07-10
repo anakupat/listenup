@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :username, format: { with: /\A[a-zA-Z0-9]+\z/, message: "only allows letters and numbers"}
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
   belongs_to :song
   has_many :friendships
   has_many :friends, :through => :friendships
