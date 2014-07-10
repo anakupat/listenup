@@ -23,8 +23,12 @@ class User < ActiveRecord::Base
     friends + inverse_friends
   end
 
+  def all_friendships
+    friendships + inverse_friendships
+  end
+
   private
     def create_permalink
-      self.permalink = username.downcase
+      self.permalink = username
     end
 end
