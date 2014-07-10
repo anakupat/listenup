@@ -29,6 +29,7 @@
                 <li><a href="/search">Search</a></li>
                 <% if user_signed_in? %>
                   <li><%=link_to "My Playlist", "/users/#{current_user.permalink}" %></li>
+                  <li><%=link_to "Users", users_path %></li>
                   <li><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                 <% else %>
                   <li><%= link_to "Sign In", new_user_session_path %></li>
