@@ -9,10 +9,10 @@ feature "user signs out", %q{
   scenario "user signs out" do
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_on "Sign in"
+    sign_in_as(user)
+    # fill_in "Email", with: user.email
+    # fill_in "Password", with: user.password
+    # click_on "Sign in"
 
     click_on "Sign Out"
 
