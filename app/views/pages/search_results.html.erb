@@ -29,7 +29,7 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <% @friendships.each do |friendship| %>
+            <% current_user.all_friendships.each do |friendship| %>
               <% if friendship.friend.username != current_user.username %>
                 <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" ><%= check_box_tag "user_ids[]", friendship.friend.id %> <%= friendship.friend.username %></a></li>
               <% end %>

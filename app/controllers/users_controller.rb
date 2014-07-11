@@ -14,8 +14,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_permalink(params[:id])
-    @params_id = @user.id
-    @songs = Song.where(user_id:  @params_id)
+    @songs = Song.where(user:  @user)
     @friendships = @user.all_friendships
   end
 end

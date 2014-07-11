@@ -28,17 +28,30 @@
 
 <h2>Friends</h2>
 
+<table class="table">
 <% @friendships.each do |friendship| %>
-  <% if friendship.friend.username != params[:id] %>
-    <%= link_to friendship.friend.username, "/users/#{friendship.friend.permalink}" %>
+  <tr>
+    <% if friendship.friend.username != params[:id] %>
+    <td>
+      <%= link_to friendship.friend.username, "/users/#{friendship.friend.permalink}" %>
+    </td>
     <% if current_user.username == params[:id] %>
-      <%= link_to "remove", friendship, method: :delete %><br>
+    <td>
+      <%= link_to "remove", friendship, method: :delete %>
+    </td>
     <% end %>
   <% end %>
   <% if friendship.user.username != params[:id] %>
-    <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
+    <td>
+      <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
+    </td>
     <% if current_user.username == params[:id] %>
-      <%= link_to "remove", friendship, method: :delete %><br>
+    <td>
+      <%= link_to "remove", friendship, method: :delete %>
+    </td>
+  </tr>
     <% end %>
   <% end %>
 <% end %>
+
+</table>

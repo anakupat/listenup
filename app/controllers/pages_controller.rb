@@ -17,7 +17,6 @@ end
 def search_results
   search = params[:search].to_s.gsub(" ","+")
   @results = search_spotify(search)
-  @friendships = current_user.all_friendships
 
   render('search_results')
 end
