@@ -19,7 +19,7 @@ def search_results
   @results = search_spotify(search)
   @users = User.all
 
-    render('search_results')
+  render('search_results')
 end
 
 end

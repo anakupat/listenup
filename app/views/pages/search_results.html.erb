@@ -2,6 +2,10 @@
 
     <table class="table search_results">
 
+    <% if @results["tracks"].length == 0 %>
+      <div class="alert alert-danger" role="alert">No results found - <%= link_to "Search Again", root_path %></div>
+    <% else %>
+
       <% @results["tracks"][0,10].each do |result| %>
       <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]) do |f| %>
     <tr>
@@ -38,6 +42,7 @@
          <% end %>
       </td>
     </tr>
+      <% end %>
       <% end %>
   </table>
 </div>
