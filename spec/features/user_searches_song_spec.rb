@@ -18,6 +18,8 @@ feature "user can search for songs and see Spotify iframe results", %q{
     fill_in "song, artist, album..", with: "Elton John"
     click_on "search!"
 
+
+    expect(page).to have_content "Elton John"
     # - Verify iframe of song search exists
     page.has_css?('outerWidgetContainer')
     page.has_css?('art')
