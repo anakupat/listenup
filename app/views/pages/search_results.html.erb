@@ -6,8 +6,9 @@
       <div class="alert alert-danger" role="alert">No results found - <%= link_to "Search Again", root_path %></div>
     <% else %>
 
-      <% @results["tracks"][0,10].each do |result| %>
-      <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]) do |f| %>
+      <% @results["tracks"][0,10].each_with_index do |result, index| %>
+      <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]),
+        html: { class: "song-#{index + 1}" } do |f|  %>
     <tr>
       <td>
         <% result["artists"].each do |artist|%>
