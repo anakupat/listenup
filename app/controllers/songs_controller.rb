@@ -7,16 +7,22 @@ class SongsController < ApplicationController
   def show
     @user = User.find_by_permalink(params[:id])
     @params_id = @user.id
-    @songs = Song.where(user_id:  @params_id)
     @friends = Friendship.where(user_id: @params_id)
   end
 
   def create
     @user_ids = params[:user_ids]
     @artist = params[:song][:name]
-    @user_ids.each do |userid|
-      @song = Song.create(song_uri: params[:song][:song_uri],
-       song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
+
+
+    if params[:user_add]
+        @song = Song.create(song_uri: params[:song][:song_uri],
+       song_name: params[:song][:song_name], user_id: current_user.id, added_by: current_user.username)
+      else
+        @user_ids.each do |userid|
+          @song = Song.create(song_uri: params[:song][:song_uri],
+         song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
+      end
     end
 
     redirect_to '/search'

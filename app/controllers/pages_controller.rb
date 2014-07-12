@@ -15,6 +15,7 @@ def search
 end
 
 def search_results
+  # binding.pry
   search = params[:search].to_s.gsub(" ","+")
   @results = search_spotify(search)
 
