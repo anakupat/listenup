@@ -19,7 +19,7 @@
       </td>
       <td>
         <% if song.user_id == current_user.id || song.added_by == current_user.username %>
-         <%= link_to 'delete', song, :method => :delete, :class => "btn btn-lg btn-success"%>
+         <%= link_to 'delete', song, :method => :delete, :class => "btn btn-md btn-success"%>
         <% end %>
       </td>
     </tr>
