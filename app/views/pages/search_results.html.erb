@@ -19,9 +19,12 @@
         <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
       </td>
       <td>
+        <%= f.submit "add to my playlist", :class => "btn btn-sm btn-success add_button", name: :user_add %>
+      </td>
+      <td>
         <%= f.hidden_field :song_name %>
         <%= f.hidden_field :song_uri %>
-        <%= f.submit "add2", :class => "btn btn-lg btn-success add_button", name: :user_add %>
+
 <!-- dropdown and only if user is signed in-->
       <% if user_signed_in? %>
         <div class="dropdown">
@@ -38,7 +41,7 @@
                 <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" ><%= check_box_tag "user_ids[]", friendship.user.id %> <%= friendship.user.username %></a></li>
               <% end %>
             <% end %>
-              <%= f.submit "add", :class => "btn btn-lg btn-success add_button", name: :friend_add %>
+              <%= f.submit "add", :class => "btn btn-sm btn-success add_button", name: :friend_add %>
             </ul>
         </div>
       </td>
