@@ -11,7 +11,7 @@ feature "user signs out", %q{
 
     sign_in_as(user)
 
-    click_on "Sign Out"
+    click_on "sign out"
 
     expect(page).to have_content "Signed out successfully."
   end
