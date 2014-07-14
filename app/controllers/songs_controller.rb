@@ -18,6 +18,7 @@ class SongsController < ApplicationController
     if params[:user_add]
         @song = Song.create(song_uri: params[:song][:song_uri],
        song_name: params[:song][:song_name], user_id: current_user.id, added_by: current_user.username)
+        redirect_to current_user_path
       else
         @user_ids.each do |userid|
           @song = Song.create(song_uri: params[:song][:song_uri],
