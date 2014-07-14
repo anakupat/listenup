@@ -11,6 +11,7 @@ class SongsController < ApplicationController
   end
 
   def create
+
     @user_ids = params[:user_ids]
     @artist = params[:song][:name]
 
@@ -26,7 +27,8 @@ class SongsController < ApplicationController
         song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
       end
       flash[:notice] = "#{@song.song_name} added to playlists!"
-      redirect_to root_path
+      # redirect_to root_path
+      redirect_to("/search_results?search=#{params[:search]}")
     end
   end
 
