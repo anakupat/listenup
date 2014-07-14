@@ -30,18 +30,13 @@
                 <% if user_signed_in? %>
                   <li><%=link_to "my playlist", "/users/#{current_user.permalink}" %></li>
                   <li><%=link_to "find friends", users_path %></li>
+                  <li><%=link_to current_user.username%></li>
                   <li><%=link_to "sign out", destroy_user_session_path, method: :delete %></li>
                   <li><%=link_to "edit account", edit_user_registration_path %></li>
                 <% else %>
                   <li><%= link_to "sign in", new_user_session_path %></li>
                   <li><%= link_to "sign up", new_user_registration_path %></li>
                 <% end %>
-<!--                 <form class="navbar-form navbar-right" action= "/search_results" method="get">
-                  <div class="form-group">
-                    <input type="text" name="search" placeholder="song, artist, album.." class="form-control">
-                  </div>
-                    <input type= "submit" class= "btn btn-success" value= "search!">
-                </form> -->
               </ul>
             </div>
           </div>
