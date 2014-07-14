@@ -16,17 +16,18 @@ class SongsController < ApplicationController
 
 
     if params[:user_add]
+      @song = Song.create(song_uri: params[:song][:song_uri],
+      song_name: params[:song][:song_name], user_id: current_user.id, added_by: current_user.username)
+      redirect_to "/users/#{current_user.permalink}"
+      flash[:notice] = "#{@song.song_name} added to your playlist!"
+    else
+      @user_ids.each do |userid|
         @song = Song.create(song_uri: params[:song][:song_uri],
-       song_name: params[:song][:song_name], user_id: current_user.id, added_by: current_user.username)
-        redirect_to current_user_path
-      else
-        @user_ids.each do |userid|
-          @song = Song.create(song_uri: params[:song][:song_uri],
-         song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
+        song_name: params[:song][:song_name], user_id: userid, added_by: current_user.username)
       end
+      flash[:notice] = "#{@song.song_name} added to playlists!"
+      redirect_to root_path
     end
-
-    redirect_to '/search'
   end
 
   def destroy
