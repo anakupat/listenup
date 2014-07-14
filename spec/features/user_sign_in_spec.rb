@@ -20,7 +20,7 @@ feature "user signs in", %q{
 
   scenario "user signs in with invalid credentials" do
     visit new_user_session_path
-    click_on "Sign in"
+    click_button "sign in"
 
     expect(page).to have_content "Invalid email or password."
   end
