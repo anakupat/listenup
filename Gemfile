@@ -30,6 +30,7 @@ gem 'bootstrap-sass'
 gem 'httparty'
 
 gem 'will_paginate', '~> 3.0'
+gem 'kaminari'
 
 group :development, :test do
   gem 'dotenv-rails'
