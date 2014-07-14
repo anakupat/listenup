@@ -26,11 +26,11 @@ class PagesController < ApplicationController
     else
       @page = 1
     end
+
     start = (@page - 1) * 10
 
     search = params[:search].to_s.gsub(" ","+")
     @results = search_spotify(search)["tracks"][start..start + 9]
-    # binding.pry
     render('search_results')
   end
 end
