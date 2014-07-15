@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "user can add friends", %q{
   As a User
-  I want to be able to add friends so that I can add songs to their playlist
+  I want to be able to add friends so that I can add songs to their playlist.
 } do
 
   # Acceptance Criteria
