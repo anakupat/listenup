@@ -9,6 +9,7 @@ feature "user deletes any song that has been added to their playlist", %q{
   #
   # - I must be signed in
   # - I can delete any songs that have been added to my playlist
+  # - I am given a message that song was deleted
 
   scenario "user deletes song from their playlist" do
 
@@ -22,6 +23,6 @@ feature "user deletes any song that has been added to their playlist", %q{
 
     click_on 'delete'
 
-     expect(page).to have_content "#{song.song_name} deleted from playlist"
+    expect(page).to have_content "#{song.song_name} deleted from playlist"
   end
 end
