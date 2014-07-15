@@ -12,10 +12,16 @@ feature "user deletes any song that has been added to their playlist", %q{
 
   scenario "user deletes song from their playlist" do
 
-    song = FactoryGirl.create(:song)
-    visit "/users/#{song.added_by}"
+    user = FactoryGirl.create(:user)
 
-    expect(page).to have_content 'hello test'
+    sign_in_as(user)
 
+    song = FactoryGirl.create(:song, user_id: user.id, added_by: user.username)
+
+    visit "/users/#{user.username}"
+
+    click_on 'delete'
+
+     expect(page).to have_content "#{song.song_name} deleted from playlist"
   end
 end

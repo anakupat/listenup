@@ -35,6 +35,7 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
+    flash[:notice] = "#{@song.song_name} deleted from playlist"
     redirect_to "/users/#{current_user.permalink}"
   end
 

@@ -1,9 +1,6 @@
-
 FactoryGirl.define do
   factory :song do
-    user_id 1
-    added_by 'username2'
-    song_uri 'spotify:track:6g1NlCpW7fgqDnWbCCDrHl'
-    song_name 'Wake Me Up'
+    song_uri 'spotify:track:5oo586agSAGWG78lVrNOjE'
+    song_name 'Tiny Dancer'
   end
 end
