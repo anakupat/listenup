@@ -25,14 +25,14 @@
 <!-- dropdown and only if user is signed in-->
       <% if user_signed_in? %>
             <td>
-        <%= f.submit "Add to my playlist", :class => "btn btn-sm btn-success add_button", name: :user_add %>
+        <%= f.submit "add to my playlist", :class => "btn btn-sm btn-success add_button", name: :user_add %>
       </td>
       <td>
         <%= f.hidden_field :song_name %>
         <%= f.hidden_field :song_uri %>
         <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            Add to friends playlist
+            add to friends playlist
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">

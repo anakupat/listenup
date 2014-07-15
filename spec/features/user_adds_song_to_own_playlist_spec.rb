@@ -21,18 +21,15 @@ feature "user searches song and adds to their own playlist", %q{
 
     sign_in_as(user1)
 
+
     fill_in "song, artist, album..", with: "Elton John"
     click_on "search!"
-
 
     within('.song-1') do
      click_on "add to my playlist"
     end
 
-    visit "/users/username1"
-
-    expect(page).to have_content "username1"
-    expect(page).to have_content "added by: username1"
-
+    expect(page).to have_content user1.username
+    expect(page).to have_content "added by: #{user1.username}"
   end
 end
