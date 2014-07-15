@@ -14,12 +14,9 @@ feature "user searches song and adds to their own playlist", %q{
 
   scenario "user searches for song and adds to their own playlist" do
     visit root_path
-    user1 = FactoryGirl.create(:user)
-    user2 = FactoryGirl.create(:user)
+    user = FactoryGirl.create(:user)
 
-    Friendship.create(user_id: user1.id, friend_id: user2.id)
-
-    sign_in_as(user1)
+    sign_in_as(user)
 
 
     fill_in "song, artist, album..", with: "Elton John"
@@ -29,7 +26,7 @@ feature "user searches song and adds to their own playlist", %q{
      click_on "add to my playlist"
     end
 
-    expect(page).to have_content user1.username
-    expect(page).to have_content "added by: #{user1.username}"
+    expect(page).to have_content user.username
+    expect(page).to have_content "added by: #{user.username}"
   end
 end

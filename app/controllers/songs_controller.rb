@@ -28,7 +28,7 @@ class SongsController < ApplicationController
       end
       flash[:notice] = "#{@song.song_name} added to playlists!"
       # redirect_to root_path
-      redirect_to("/search_results?search=#{params[:search]}")
+      redirect_to("/search_results?search=#{escaped_search}")
     end
   end
 

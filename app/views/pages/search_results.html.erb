@@ -8,7 +8,7 @@
       <% @results.each_with_index do |result, index| %>
       <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]),
         html: { class: "song-#{index + 1}" } do |f|  %>
-        <%= hidden_field_tag :search, params[:search] %>
+        <%= hidden_field_tag :search, @search_query %>
     <tr>
       <td>
         <% result["artists"].each do |artist|%>
@@ -60,12 +60,12 @@
 <div class="results_pagination">
   <% if params[:page].to_i == 0 %>
     <%= link_to "<", "#" %>
-    <%= link_to ">", search_results_path(page: (@page + 1), search: params[:search]) %>
+    <%= link_to ">", search_results_path(page: (@page + 1), search: @search_query) %>
   <% elsif params[:page].to_i < 20 %>
-    <%= link_to "<", search_results_path(page: (@page - 1), search: params[:search]) %>
-    <%= link_to ">", search_results_path(page: (@page + 1), search: params[:search]) %>
+    <%= link_to "<", search_results_path(page: (@page - 1), search: @search_query) %>
+    <%= link_to ">", search_results_path(page: (@page + 1), search: @search_query) %>
   <% else %>
-      <%= link_to "<", search_results_path(page: (@page - 1), search: params[:search]) %>
+      <%= link_to "<", search_results_path(page: (@page - 1), search: @search_query) %>
       <%= link_to ">", "#" %>
   <% end %>
 </div>

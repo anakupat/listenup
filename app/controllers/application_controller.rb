@@ -5,6 +5,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def escaped_search
+    if params[:search]
+      return CGI::escape(params[:search])
+    else
+      return ''
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -21,8 +21,8 @@ class PagesController < ApplicationController
 
     start = (@page - 1) * 5
 
-    search = params[:search].to_s.gsub(" ","+")
-    @results = search_spotify(search)["tracks"][start..start + 4]
+    @search_query = escaped_search
+    @results = search_spotify(@search_query)["tracks"][start..start + 4]
     render('search_results')
   end
 end
