@@ -1,15 +1,18 @@
-<h1>find friends</h1>
+<h1 class="find_friends">find friends</h1>
 
-<table style="color: white" class="table">
+<table class="table find_friends">
   <% @users.each do |user| %>
     <% if user.username != current_user.username %>
       <tr>
         <td>
+          <%= user.first_name %> <%=user.last_name%>
+        </td>
+        <td>
           <%= user.username %>
         </td>
          <% if user_signed_in? %>
-
-        <td>
+        <td style="text-align: right">
+          <%= link_to "view playlist", "/users/#{user.username}" %> |
           <%= link_to "add friend", friendships_path(:friend_id => user.id), :method => :post %>
         </td>
           <% end %>
