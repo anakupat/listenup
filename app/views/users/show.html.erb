@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-md-4">
     <%= image_tag @user.avatar.url %>
     <h1 style="color: #5cb85c"><%= @user.username %></h1>
       <table class="table">
@@ -32,7 +32,7 @@
         <% end %>
       </table>
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-4 col-md-4">
     <% songs = [] %>
     <% @songs.each do |song| %>
       <% songs << song.song_uri.gsub("spotify:track:","") %>
@@ -43,7 +43,7 @@
         width="300" height="380"frameborder="0" allowtransparency="true">
       </iframe>
   </div>
-  <div class="col-lg-4">
+  <div class="col-lg-4 col-md-4">
     <% if @songs.count > 0 %>
       <table class="table playlist_songs">
         <% @songs.each do |song| %>
