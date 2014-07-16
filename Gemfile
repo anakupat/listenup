@@ -29,6 +29,7 @@ gem 'bootstrap-sass'
 gem 'httparty'
 gem 'carrierwave'
 gem "mini_magick"
+gem 'fog'
 
 group :development, :test do
   gem 'dotenv-rails'
