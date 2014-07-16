@@ -46,8 +46,10 @@
             <%= yield %>
       </div>
     </div>
-
-
+<% if current_user %>
+  <%= image_tag current_user.avatar.url, class: "img-circle" %>
+  <%= image_tag current_user.avatar.url(:thumb), class: "img-circle" %>
+<% end %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 </body>

@@ -19,7 +19,7 @@
 
     <div><i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %></div>
-
+      <div><%= f.file_field :avatar %></div>
 
     <%= f.submit "update", class:"btn btn-md btn-success devise_button" %>
   <% end %>

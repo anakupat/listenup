@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
    before_save :create_permalink
 
+  mount_uploader :avatar, AvatarUploader
+
   def to_param
     permalink
   end

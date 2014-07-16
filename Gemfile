@@ -27,9 +27,8 @@ gem 'rails_12factor', group: :production
 gem 'bootstrap-sass'
 
 gem 'httparty'
-
-gem 'will_paginate', '~> 3.0'
-gem 'kaminari'
+gem 'carrierwave'
+gem "mini_magick"
 
 group :development, :test do
   gem 'dotenv-rails'
