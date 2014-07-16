@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-4">
-    <%= image_tag current_user.avatar.url %>
+    <%= image_tag @user.avatar.url %>
     <h1 style="color: #5cb85c"><%= @user.username %></h1>
       <table class="table">
 
@@ -19,7 +19,7 @@
           <% end %>
           <% if friendship.user.username != params[:id] %>
             <td>
-              <%= image_tag friendship.friend.avatar.url(:thumb), class: "img-circle" %>
+              <%= image_tag friendship.user.avatar.url(:thumb), class: "img-circle" %>
               <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
             </td>
             <% if current_user.username == params[:id] %>
