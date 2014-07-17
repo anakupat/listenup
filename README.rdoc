@@ -1,28 +1,7 @@
-== README
+listenUP!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Search for music, create playlists for friends, and listen - all from one application. Utilizes the Spotify metadata API.
 
-Things you may want to cover:
+*requires Spotify to be installed on computer https://www.spotify.com/us/download
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+![listenup_screenshot](https://cloud.githubusercontent.com/assets/5788358/3614170/28102974-0dbe-11e4-84d9-2342386424f3.png)
