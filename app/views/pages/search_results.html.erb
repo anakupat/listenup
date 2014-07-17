@@ -6,51 +6,54 @@
       </div>
     <% else %>
       <% @results.each_with_index do |result, index| %>
-      <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]),
-        html: { class: "song-#{index + 1}" } do |f|  %>
+        <%= form_for Song.new(song_uri: result["href"], song_name: result["name"]),
+          html: { class: "song-#{index + 1}" } do |f|  %>
         <%= hidden_field_tag :search, @search_query %>
-    <tr>
-      <td>
-        <% result["artists"].each do |artist|%>
-          <h4><%= artist["name"] %></h4>
-        <% end %><br>
-          <%= result["name"] %>
-      </td>
-      <td>
-        <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350" height="80" frameborder="0" allowtransparency="true"></iframe>
-      </td>
-
-
-
-<!-- dropdown and only if user is signed in-->
-      <% if user_signed_in? %>
+          <tr>
             <td>
-        <%= f.submit "add to my playlist", :class => "btn btn-sm btn-success add_button", name: :user_add %>
-      </td>
-      <td>
-        <%= f.hidden_field :song_name %>
-        <%= f.hidden_field :song_uri %>
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-            add to friends playlist
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <% current_user.all_friendships.each do |friendship| %>
-              <% if friendship.friend.username != current_user.username %>
-                <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" ><%= check_box_tag "user_ids[]", friendship.friend.id %> <%= friendship.friend.username %></a></li>
+              <% result["artists"].each do |artist|%>
+                <h4><%= artist["name"] %></h4>
               <% end %>
-              <% if friendship.user.username != current_user.username %>
-                <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" ><%= check_box_tag "user_ids[]", friendship.user.id %> <%= friendship.user.username %></a></li>
+                <%= result["name"] %>
+            </td>
+            <td>
+              <iframe src="https://embed.spotify.com/?uri=<%=result["href"] %>" width="350"
+                height="80" frameborder="0" allowtransparency="true">
+              </iframe>
+            </td>
+            <% if user_signed_in? %>
+            <td>
+              <%= f.submit "add to my playlist", :class => "btn btn-sm btn-success add_button", name: :user_add %>
+                <%= f.hidden_field :song_name %>
+                <%= f.hidden_field :song_uri %>
+            </td>
+            <td>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  add to friends playlist
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                  <% current_user.all_friendships.each do |friendship| %>
+                    <% if friendship.friend.username != current_user.username %>
+                      <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" >
+                        <%= check_box_tag "user_ids[]", friendship.friend.id %>
+                        <%= friendship.friend.username %></a>
+                      </li>
+                    <% end %>
+                    <% if friendship.user.username != current_user.username %>
+                      <li role="presentation" id="foo"><a role="menuitem" tabindex="-1" href="#" >
+                        <%= check_box_tag "user_ids[]", friendship.user.id %>
+                        <%= friendship.user.username %></a>
+                      </li>
+                    <% end %>
+                  <% end %>
+                    <%= f.submit "add", :class => "btn btn-sm btn-success add_button", name: :friend_add %>
               <% end %>
-            <% end %>
-              <%= f.submit "add", :class => "btn btn-sm btn-success add_button", name: :friend_add %>
-            </ul>
-        </div>
-      </td>
-    </tr>
-<!-- end of dropdown and only if user is signed in -->
-          <% end %>
+                </ul>
+              </div>
+            </td>
+          </tr>
         <% end %>
       <% end %>
     <% end %>
