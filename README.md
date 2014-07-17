@@ -1,6 +1,6 @@
-# listenUP!
+# [listenUP!] http://listenup-songshare.herokuapp.com/
 
-Search for music, create playlists for friends, and listen - all from one application. Utilizes the Spotify metadata API.
+# Search for music, create playlists for friends, and listen - all from one application. Utilizes the Spotify metadata API.
 
 *requires Spotify to be installed on computer https://www.spotify.com/us/download
 
