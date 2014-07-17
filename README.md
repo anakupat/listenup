@@ -1,4 +1,4 @@
-listenUP!
+# listenUP!
 
 Search for music, create playlists for friends, and listen - all from one application. Utilizes the Spotify metadata API.
 
