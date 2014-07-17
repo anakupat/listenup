@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   before_save :create_permalink
+  before_save :create_permalink
 
   mount_uploader :avatar, AvatarUploader
 
