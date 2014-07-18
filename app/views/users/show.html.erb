@@ -44,9 +44,10 @@
   </div>
 </div>
 
-<div class="row friends">
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dash">
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 friends">
     <h2 style="color: #5cb85c">friends</h2>
+    <div class="scroll_friends">
     <table class="table">
           <% @friendships.each do |friendship| %>
             <tr>
@@ -87,5 +88,6 @@
             <% end %>
           <% end %>
         </table>
+      </div>
   </div>
 </div>
