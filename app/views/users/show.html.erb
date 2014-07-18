@@ -1,37 +1,38 @@
 <div class="row">
-    <div class="col-lg-4 col-md-4">
-    <div class="playlist_image"><%= image_tag @user.avatar.url, class: "test" %></div>
-    <h1 style="color: #5cb85c"><%= @user.username %></h1>
-      <table class="table">
-
-        <% @friendships.each do |friendship| %>
-          <tr>
-            <% if friendship.friend.username != params[:id] %>
-            <td>
-              <%= image_tag friendship.friend.avatar.url(:thumb), class: "img_thumb" %>
-              <%= link_to friendship.friend.username, "/users/#{friendship.friend.permalink}" %>
-            </td>
-            <% if current_user.username == params[:id] %>
-            <td>
-              <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
-            </td>
+      <div class="col-lg-4 col-md-4">
+      <div class="playlist_image">
+        <%= image_tag @user.avatar.url, class: "test" %>
+      </div>
+        <h1 style="color: #5cb85c"><%= @user.username %></h1>
+        <table class="table">
+          <% @friendships.each do |friendship| %>
+            <tr>
+              <% if friendship.friend.username != params[:id] %>
+              <td>
+                <%= image_tag friendship.friend.avatar.url(:thumb), class: "img_thumb" %>
+                <%= link_to friendship.friend.username, "/users/#{friendship.friend.permalink}" %>
+              </td>
+              <% if current_user.username == params[:id] %>
+              <td>
+                <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
+              </td>
+              <% end %>
+            <% end %>
+            <% if friendship.user.username != params[:id] %>
+              <td>
+                <%= image_tag friendship.user.avatar.url(:thumb), class: "img_thumb" %>
+                <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
+              </td>
+              <% if current_user.username == params[:id] %>
+              <td>
+                <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
+              </td>
+            </tr>
+              <% end %>
             <% end %>
           <% end %>
-          <% if friendship.user.username != params[:id] %>
-            <td>
-              <%= image_tag friendship.user.avatar.url(:thumb), class: "img_thumb" %>
-              <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
-            </td>
-            <% if current_user.username == params[:id] %>
-            <td>
-              <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
-            </td>
-          </tr>
-            <% end %>
-          <% end %>
-        <% end %>
-      </table>
-  </div>
+        </table>
+    </div>
   <div class="col-lg-4 col-md-4">
     <% songs = [] %>
     <% @songs.each do |song| %>
@@ -43,14 +44,16 @@
         width="300" height="380"frameborder="0" allowtransparency="true">
       </iframe>
   </div>
-  <div class="col-lg-4 col-md-4">
+  <div class="col-lg-4 col-md-4 div_scroll_songs">
     <% if @songs.count > 0 %>
       <table class="table playlist_songs">
         <% @songs.each do |song| %>
           <tr>
             <td>
               <%= song.song_name %><br>
-              <div class="added_by"> added by: <%= link_to song.added_by, "/users/#{song.added_by}" %></div>
+              <div class="added_by">
+                added by: <%= link_to song.added_by, "/users/#{song.added_by}" %>
+              </div>
             </td>
             <td>
             <% if song.user_id == current_user.id || song.added_by == current_user.username %>
@@ -64,7 +67,4 @@
       <%= link_to "search for songs!", root_path %>
     <% end %>
   </div>
-
-</div> <!-- end of grid row -->
-
-
+</div>
