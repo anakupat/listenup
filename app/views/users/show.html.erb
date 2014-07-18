@@ -1,11 +1,55 @@
 <div class="row">
-      <div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4 dash">
       <div class="playlist_image">
         <%= image_tag @user.avatar.url, class: "test" %>
       </div>
         <h1 style="color: #5cb85c"><%= @user.username %></h1>
-        <div class ="friends_scroll">
-        <table class="table">
+        <%= @user.first_name %> <%= @user.last_name %>
+    </div>
+  <div class="col-lg-4 col-md-4">
+    <% songs = [] %>
+    <% @songs.each do |song| %>
+      <% songs << song.song_uri.gsub("spotify:track:","") %>
+    <% end %>
+
+    <% songs = songs.join(",") %>
+      <iframe src="https://embed.spotify.com/?uri=spotify:trackset:ListenUP!:<%=songs%>"
+        width="300" height="380"frameborder="0" allowtransparency="true" class="playlist_iframe">
+      </iframe>
+  </div>
+  <div class="col-lg-4 col-md-4 div_scroll_songs dash">
+    <% if @songs.count > 0 %>
+      <table class="table playlist_songs">
+        <% @songs.each do |song| %>
+          <tr>
+            <td>
+              <%= song.song_name %><br>
+              <div class="added_by">
+                added by: <%= link_to song.added_by, "/users/#{song.added_by}" %>
+              </div>
+            </td>
+            <td>
+            <% if song.user_id == current_user.id || song.added_by == current_user.username %>
+              <%= link_to 'delete', song, :method => :delete%>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <% else %>
+      <%= link_to "search for songs!", root_path %>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 dash">
+    <h2 style="color: #5cb85c">friends</h2>
+    <table class="table">
           <% @friendships.each do |friendship| %>
             <tr>
               <% if friendship.friend.username != params[:id] %>
@@ -33,40 +77,5 @@
             <% end %>
           <% end %>
         </table>
-      </div>
-    </div>
-  <div class="col-lg-4 col-md-4">
-    <% songs = [] %>
-    <% @songs.each do |song| %>
-      <% songs << song.song_uri.gsub("spotify:track:","") %>
-    <% end %>
-
-    <% songs = songs.join(",") %>
-      <iframe src="https://embed.spotify.com/?uri=spotify:trackset:ListenUP!:<%=songs%>"
-        width="300" height="380"frameborder="0" allowtransparency="true">
-      </iframe>
-  </div>
-  <div class="col-lg-4 col-md-4 div_scroll_songs">
-    <% if @songs.count > 0 %>
-      <table class="table playlist_songs">
-        <% @songs.each do |song| %>
-          <tr>
-            <td>
-              <%= song.song_name %><br>
-              <div class="added_by">
-                added by: <%= link_to song.added_by, "/users/#{song.added_by}" %>
-              </div>
-            </td>
-            <td>
-            <% if song.user_id == current_user.id || song.added_by == current_user.username %>
-              <%= link_to 'delete', song, :method => :delete%>
-            <% end %>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-      <% else %>
-      <%= link_to "search for songs!", root_path %>
-    <% end %>
   </div>
 </div>

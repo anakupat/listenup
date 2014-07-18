@@ -24,13 +24,15 @@
       <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %>
     </div>
 
+    <div><i>add an avatar</i></div><br />
     <div><%= f.file_field :avatar %></div>
 
-    <%= f.submit "update", class:"btn btn-md btn-success devise_button" %>
+    <div id="update"><%= f.submit "update", class:"btn btn-md btn-success devise_button" %></div>
   <% end %>
 
-  <p><%= button_to "cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn btn-md btn-success devise_button", method: :delete %></p>
-
+  <div id="cancel">
+    <p><%= button_to "cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" },class:"btn btn-md btn-success devise_button", method: :delete %></p>
+  </div>
   <%= link_to "Back", :back %>
 </div>
 

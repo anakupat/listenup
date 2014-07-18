@@ -1,0 +1,40 @@
+require 'rails_helper'
+
+feature 'users can add an avatar', %Q(
+  As a user
+  Upload an avatar
+  So that everyone can see how cool I am
+
+) do
+
+  # Acceptance Criteria
+
+  # When I visit the edit profile page, I am presented with a
+  # file upload field, browse button, and upload button.
+  # When I select a proper file and click on upload, I get a
+  # success message and see the image on the page.
+  # When I select the wrong file type, I get an error message
+  # and can browse for another file.
+
+  scenario 'user sees the proper field and browse and upload buttons' do
+    user = FactoryGirl.create(:user)
+
+    sign_in_as(user)
+
+    click_on 'edit account'
+    expect(page).to have_content 'add an avatar'
+    attach_file('user_avatar', 'spec/fixtures/avatar.jpg')
+      File.join(Rails.root, '/spec/fixtures/avatar.jpg')
+
+    fill_in 'current password', with: user.password
+    save_and_open_page
+    within('#update') do
+     click_button 'update'
+    end
+
+    # user.reload
+
+    expect(page).to have_content 'You updated your account successfully.'
+    # expect(page).to have_image user.avatar.url
+  end
+end
