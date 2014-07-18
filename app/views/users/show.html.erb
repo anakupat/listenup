@@ -1,11 +1,13 @@
 <div class="row">
-      <div class="col-lg-4 col-md-4 dash">
-      <div class="playlist_image">
-        <%= image_tag @user.avatar.url, class: "test" %>
+      <div class="col-lg-4 col-md-4">
+        <div class="playlist_image">
+          <%= image_tag @user.avatar.url, class: "avatar" %>
+        </div>
+        <div class="user_info">
+          <h1 style="color: #5cb85c"><%= @user.username %></h1>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </div>
       </div>
-        <h1 style="color: #5cb85c"><%= @user.username %></h1>
-        <%= @user.first_name %> <%= @user.last_name %>
-    </div>
   <div class="col-lg-4 col-md-4">
     <% songs = [] %>
     <% @songs.each do |song| %>
