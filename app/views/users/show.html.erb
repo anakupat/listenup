@@ -55,18 +55,30 @@
                 <%= image_tag friendship.friend.avatar.url(:thumb), class: "img_thumb" %>
                 <%= link_to friendship.friend.username, "/users/#{friendship.friend.permalink}" %>
               </td>
+              <td>
+                 <div class="fullname">
+                  <%= friendship.user.first_name %> <%= friendship.user.last_name %>
+                 </div>
+              </td>
               <% if current_user.username == params[:id] %>
               <td>
                 <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
               </td>
               <% end %>
             <% end %>
+
             <% if friendship.user.username != params[:id] %>
               <td>
                 <%= image_tag friendship.user.avatar.url(:thumb), class: "img_thumb" %>
                 <%= link_to friendship.user.username, "/users/#{friendship.user.permalink}" %>
               </td>
+              <td>
+                 <div class="fullname">
+                  <%= friendship.user.first_name %> <%= friendship.user.last_name %>
+                 </div>
+              </td>
               <% if current_user.username == params[:id] %>
+
               <td>
                 <div class="remove"><%= link_to "remove", friendship, method: :delete %></div>
               </td>
