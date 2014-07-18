@@ -23,18 +23,18 @@ feature 'users can add an avatar', %Q(
 
     click_on 'edit account'
     expect(page).to have_content 'add an avatar'
+
     attach_file('user_avatar', 'spec/fixtures/avatar.jpg')
-      File.join(Rails.root, '/spec/fixtures/avatar.jpg')
+      # File.join(Rails.root, '/spec/fixtures/avatar.jpg')
 
     fill_in 'current password', with: user.password
-    save_and_open_page
     within('#update') do
      click_button 'update'
     end
 
-    # user.reload
-
     expect(page).to have_content 'You updated your account successfully.'
-    # expect(page).to have_image user.avatar.url
+    visit "users/#{user.username}"
+    # save_and_open_page
+    expect(page.html).to include("/uploads/user/avatar/#{user.id}/avatar.jpg")
   end
 end
