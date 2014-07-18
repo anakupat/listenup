@@ -4,6 +4,7 @@
         <%= image_tag @user.avatar.url, class: "test" %>
       </div>
         <h1 style="color: #5cb85c"><%= @user.username %></h1>
+        <div class ="friends_scroll">
         <table class="table">
           <% @friendships.each do |friendship| %>
             <tr>
@@ -32,6 +33,7 @@
             <% end %>
           <% end %>
         </table>
+      </div>
     </div>
   <div class="col-lg-4 col-md-4">
     <% songs = [] %>
