@@ -25,7 +25,6 @@ feature 'users can add an avatar', %Q(
     expect(page).to have_content 'add an avatar'
 
     attach_file('user_avatar', 'spec/fixtures/avatar.jpg')
-      # File.join(Rails.root, '/spec/fixtures/avatar.jpg')
 
     fill_in 'current password', with: user.password
     within('#update') do
@@ -34,7 +33,6 @@ feature 'users can add an avatar', %Q(
 
     expect(page).to have_content 'You updated your account successfully.'
     visit "users/#{user.username}"
-    # save_and_open_page
     expect(page.html).to include("/uploads/user/avatar/#{user.id}/avatar.jpg")
   end
 end
